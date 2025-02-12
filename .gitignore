@@ -1,0 +1,45 @@
+## Ignore Visual Studio temporary files, build results, and
+## common settings.
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+/[Bb]in/
+/[Oo]bj/
+/[Ll]og/
+/[Tt]emp/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+## Visual Studio Code specific
+.vscode/
+
+## Package management
+node_modules/
+*.nupkg
+*.lock.json
+
+## Secrets
+*.env
+secrets.json
+
+## Logs
+*.log
+
+## Coverage files
+coverage/
+*.coverage
+
+## Generated files
+*.gen.cs
+*.designer.cs
+
+## Others
+debug/
+release/
