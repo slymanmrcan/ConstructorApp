@@ -2,12 +2,29 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="index.html">
+                @* <div class="sb-sidenav-menu-heading">Core</div> *@
+                <a class="nav-link" asp-action="Index" asp-controller="Home">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Dashboard
+                    Yönetim paneli
                 </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
+                <a class="nav-link" asp-action="Index" asp-controller="Customer">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                    Müşteriler
+                </a>
+                <a class="nav-link" href="index.html">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-person-digging"></i></i></div>
+                    Personel
+                </a>
+                <a class="nav-link" href="index.html">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-industry"></i></i></div>
+                    Projeler
+                </a>
+                <a class="nav-link" href="index.html">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></i></div>
+                    Görevler
+                </a>
+
+                @* <div class="sb-sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                     aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -58,8 +75,8 @@
                             </nav>
                         </div>
                     </nav>
-                </div>
-                <div class="sb-sidenav-menu-heading">Addons</div>
+                </div> *@
+                @* <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Charts
@@ -67,7 +84,7 @@
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
-                </a>
+                </a> *@
             </div>
         </div>
         <div class="sb-sidenav-footer">

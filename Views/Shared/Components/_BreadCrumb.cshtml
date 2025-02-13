@@ -1,7 +1,7 @@
 <div class="container-fluid px-4">
-    <h1 class="mt-4">@ViewData["BreadCrumbTitle"]</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">Static Navigation</li>
+    <h1 class="mt-4 text-center">@*@ViewData["BreadCrumbTitle"]*@ Yönetim Paneli</h1>
+    <ol class="breadcrumb mb-4 d-flex justify-content-end">
+        <li class="breadcrumb-item"><a>@ViewData["Controller"]</a></li>
+        <li class="breadcrumb-item active">@ViewData["Action"]</li>
     </ol>
 </div>
