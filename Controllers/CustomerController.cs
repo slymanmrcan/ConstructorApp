@@ -1,8 +1,8 @@
+using System.Threading.Tasks;
 using ConstructorApp.Models;
 using ConstructorApp.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Models.ViewModels;
-
 namespace ConstructorApp.Controllers
 {
     public class CustomerController(ICustomerRepository customerRepository, IUnitOfWork unitOfWork) : BaseController
@@ -27,12 +27,10 @@ namespace ConstructorApp.Controllers
 
             return View(customerViewModel);
         }
-
         public IActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Create(Customer customer)
         {
@@ -44,38 +42,28 @@ namespace ConstructorApp.Controllers
             }
             return View(customer);
         }
-
-        // public IActionResult Edit(int id)
-        // {
-        //     var customer = _context.Customers.Find(id);
-        //     return View(customer);
-        // }
-
-        // [HttpPost]
-        // public IActionResult Edit(Customer customer)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         _context.Customers.Update(customer);
-        //         _context.SaveChanges();
-        //         return RedirectToAction("Index");
-        //     }
-        //     return View(customer);
-        // }
-
-        // public IActionResult Delete(int id)
-        // {
-        //     var customer = _context.Customers.Find(id);
-        //     return View(customer);
-        // }
-
-        // [HttpPost, ActionName("Delete")]
-        // public IActionResult DeleteConfirmed(int id)
-        // {
-        //     var customer = _context.Customers.Find(id);
-        //     _context.Customers.Remove(customer);
-        //     _context.SaveChanges();
-        //     return RedirectToAction("Index");
-        // }
+        public async Task<IActionResult> Details(int id)
+        {
+            var customer =await customerRepository.GetByIdAsync(id);
+            return View(customer);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Details(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                await customerRepository.UpdateAsync(customer);
+                await unitOfWork.SavaChagensAsync();
+                return RedirectToAction("Index");
+            }
+            return View(customer);
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var customer = await customerRepository.GetByIdAsync(id);
+            await customerRepository.DeleteAsync(customer);
+            await unitOfWork.SavaChagensAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

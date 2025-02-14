@@ -43,3 +43,4 @@ coverage/
 ## Others
 debug/
 release/
+appsettings.json
