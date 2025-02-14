@@ -12,7 +12,6 @@ namespace ConstructorApp.Controllers
         {
             int pageSize = 10;
             var (pagedData, totalPages) = await customerService.GetPagedAsync(page, pageSize);
-
             var customerViewModel = new CustomerViewModel
             {
                 PaginationModel = new PaginationModel

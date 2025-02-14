@@ -4,10 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConstructorApp.Models
 {
-    public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<IdentityUser>(options)
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<AppUser,AppRole, int>(options)
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<ProjectAssignment> ProjectAssignments { get; set; }
         

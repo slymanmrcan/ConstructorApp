@@ -16,10 +16,10 @@ namespace ConstructorApp.Extensions
 
         //     return connectionString;
         // }
-    
-    public static IServiceCollection AddIdentitySettings(this IServiceCollection services)
+
+        public static IServiceCollection AddIdentitySettings(this IServiceCollection services)
         {
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<AppUser, AppRole>(options =>
             {
                 // Şifre kuralları
                 options.Password.RequireDigit = true;
@@ -34,7 +34,7 @@ namespace ConstructorApp.Extensions
             })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
-
+            
             return services;
         }
     }
