@@ -43,7 +43,12 @@ namespace ConstructorApp.Controllers
             identityService.AddToRole(await identityService.GetUserByUsername("admin"), "Admin").Wait();
             return RedirectToAction("Login");
         }
-
+        public async Task<IActionResult> AddFirstRole()
+        {
+            await identityService.CreateRole("Personel");
+            await identityService.CreateRole("Yönetici");
+            return RedirectToAction("Login");
+        }
         public async Task<IActionResult> Logout()
         {
             await identityService.SignOut();

@@ -6,11 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
+builder.Services.AddSqlServer(builder.Configuration);
 builder.Services.AddIdentitySettings();
 builder.Services.AddRepositoryExtention().AddServicesExtention();
 builder.Services.ConfigureApplicationCookie(options =>

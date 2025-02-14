@@ -1,21 +1,21 @@
 using ConstructorApp.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConstructorApp.Extensions
 {
     public static class DbConnectionExtension
     {
-        // public static string GetDbConnection(this IConfiguration configuration)
-        // {
-        //     var connectionString = configuration.GetConnectionString("DefaultConnection");
+        
+        public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            });
 
-        //     if (string.IsNullOrEmpty(connectionString))
-        //     {
-        //         throw new Exception("Bağlantı dizesi bulunamadı! Lütfen appsettings.json dosyanızı kontrol edin.");
-        //     }
-
-        //     return connectionString;
-        // }
+            return services;
+        }
 
         public static IServiceCollection AddIdentitySettings(this IServiceCollection services)
         {
