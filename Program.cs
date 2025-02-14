@@ -12,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddIdentitySettings();
-builder.Services.AddRepositoryExtention();
+builder.Services.AddRepositoryExtention().AddServicesExtention();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

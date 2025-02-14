@@ -7,29 +7,30 @@ namespace ConstructorApp.Services
     public class GenericService<T>(IGenericRepository<T> repository) : IGenericService<T> where T : BaseEntity
     {
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await repository.AddAsync(entity);
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity = await repository.GetByIdAsync(id);
+            await repository.DeleteAsync(entity);
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await repository.GetAllAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await repository.GetByIdAsync(id);
         }
 
         public Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            return repository.UpdateAsync(entity);
         }
     }
 }

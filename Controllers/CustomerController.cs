@@ -1,16 +1,17 @@
 using System.Threading.Tasks;
 using ConstructorApp.Models;
 using ConstructorApp.Repository;
+using ConstructorApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Models.ViewModels;
 namespace ConstructorApp.Controllers
 {
-    public class CustomerController(ICustomerRepository customerRepository, IUnitOfWork unitOfWork) : BaseController
+    public class CustomerController(ICustomerService customerService, IUnitOfWork unitOfWork) : BaseController
     {
         public async Task<IActionResult> Index(int page = 1)
         {
             int pageSize = 10;
-            var customers = await customerRepository.GetAllAsync();
+            var customers = await customerService.GetAllAsync();
             var pagedData = customers.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             var totalPages = (int)Math.Ceiling(customers.Count() / (double)pageSize);
 
@@ -32,37 +33,39 @@ namespace ConstructorApp.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                customerRepository.AddAsync(customer);
-                await unitOfWork.SavaChagensAsync();
+                customerService.AddAsync(customer);
+                await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(customer);
         }
         public async Task<IActionResult> Details(int id)
         {
-            var customer =await customerRepository.GetByIdAsync(id);
+            var customer =await customerService.GetByIdAsync(id);
             return View(customer);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Details(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                await customerRepository.UpdateAsync(customer);
-                await unitOfWork.SavaChagensAsync();
+                await customerService.UpdateAsync(customer);
+                await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(customer);
         }
         public async Task<IActionResult> Delete(int id)
         {
-            var customer = await customerRepository.GetByIdAsync(id);
-            await customerRepository.DeleteAsync(customer);
-            await unitOfWork.SavaChagensAsync();
+            var customer = await customerService.GetByIdAsync(id);
+            await customerService.DeleteAsync(customer.Id);
+            await unitOfWork.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }

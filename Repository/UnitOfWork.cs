@@ -5,7 +5,7 @@ namespace ConstructorApp.Repository
 {
     public class UnitOfWork(AppDbContext context) : IUnitOfWork
     {
-        public async Task<int> SavaChagensAsync()
+        public async Task<int> SaveChangesAsync()
         {
             return await context.SaveChangesAsync();
         }
