@@ -11,9 +11,7 @@ namespace ConstructorApp.Controllers
         public async Task<IActionResult> Index(int page = 1)
         {
             int pageSize = 10;
-            var customers = await customerService.GetAllAsync();
-            var pagedData = customers.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            var totalPages = (int)Math.Ceiling(customers.Count() / (double)pageSize);
+            var (pagedData, totalPages) = await customerService.GetPagedAsync(page, pageSize);
 
             var customerViewModel = new CustomerViewModel
             {

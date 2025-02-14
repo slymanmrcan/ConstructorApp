@@ -28,6 +28,15 @@ namespace ConstructorApp.Services
             return await repository.GetByIdAsync(id);
         }
 
+        public async Task<(List<T> Items, int TotalPages)> GetPagedAsync(int page, int pageSize)
+        {
+        var allItems =await repository.GetAllAsync();
+        var pagedData = allItems.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        var totalPages = (int)Math.Ceiling(allItems.Count() / (double)pageSize);
+
+        return (pagedData, totalPages);
+    }
+
         public Task UpdateAsync(T entity)
         {
             return repository.UpdateAsync(entity);
