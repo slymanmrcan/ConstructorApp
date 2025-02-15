@@ -1,0 +1,55 @@
+@model AppUser
+
+@{
+    ViewData["Title"] = "Home Page";
+    @* ViewData["BreadCrumbTitle"] = "Yönetim Paneli"; *@
+    ViewData["Controller"] = "Personel";
+    ViewData["Action"] = "Yeni Kayıt";
+}
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Listeye Geri Dön</a>
+</div>
+<div class="row justify-content-center">
+    <div class="col">
+        <form asp-action="Create" asp-controller="User" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Şifre</label>
+                <input class="form-control" name="Password" />
+                <span class="text-danger" id="Password"></span>
+            </div>
+             <div class="form-group">
+                <label class="control-label">Kullanıcı Rolü Seçin</label>
+                <select name="roleName"  asp-items="@ViewBag.roles" class="form-control">
+                    <option> ---Seçiniz---</option>
+                </select>
+
+                <span class="text-danger" id="Password"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

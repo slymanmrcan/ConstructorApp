@@ -5,6 +5,7 @@ namespace ConstructorApp.Services
 {
     public interface IIdentityService
     {
+        Task<(List<AppUser> Items, int TotalPages)> GetPagedAsync(int page, int pageSize);
         Task<bool> CheckUsernameExists(string username);
         Task<SignInResult> SignIn(string username, string password, bool rememberMe = false);
         Task<SignInResult> SignInAsync(AppUser user, bool rememberMe = false);
@@ -22,6 +23,8 @@ namespace ConstructorApp.Services
         Task<IdentityResult> AddToRole(AppUser user, string roleName);
         Task<IdentityResult> RemoveFromRole(AppUser user, string roleName);
         Task<List<AppUser>> GetUsersInRole(string roleName);
+
+        Task<List<AppRole>> GetAllRoles();
 
     }
 }

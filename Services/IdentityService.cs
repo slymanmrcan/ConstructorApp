@@ -1,5 +1,6 @@
 using ConstructorApp.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConstructorApp.Services
 {
@@ -48,7 +49,7 @@ namespace ConstructorApp.Services
 
         public async Task<IList<string>> GetUserRoles(AppUser user)
         {
-             return await _userManager.GetRolesAsync(user);
+            return await _userManager.GetRolesAsync(user);
         }
 
         public async Task<List<AppUser>> GetUsersInRole(string roleName)
@@ -87,10 +88,25 @@ namespace ConstructorApp.Services
             return await _userManager.UpdateAsync(user);
         }
 
-        public async Task<SignInResult> SignInAsync(AppUser user,bool rememberMe = false)
+        public async Task<SignInResult> SignInAsync(AppUser user, bool rememberMe = false)
         {
             await _signInManager.SignInAsync(user, rememberMe);
             return SignInResult.Success;
+        }
+
+        public async Task<(List<AppUser> Items, int TotalPages)> GetPagedAsync(int page, int pageSize)
+        {
+            var allItems = await _userManager.Users.ToListAsync();
+            var pagedData = allItems.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var totalPages = (int)Math.Ceiling(allItems.Count() / (double)pageSize);
+
+            return (pagedData, totalPages);
+        }
+
+        public Task<List<AppRole>> GetAllRoles()
+        {
+            var roles = _roleManager.Roles.ToListAsync();
+            return roles;
         }
     }
 }

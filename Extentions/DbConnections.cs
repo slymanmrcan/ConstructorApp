@@ -23,11 +23,11 @@ namespace ConstructorApp.Extensions
             services.AddIdentity<AppUser, AppRole>(options =>
             {
                 // Şifre kuralları
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequiredLength = 6;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 2;
 
                 // Kullanıcı kuralları
                 options.User.RequireUniqueEmail = true;

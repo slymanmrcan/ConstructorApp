@@ -18,7 +18,7 @@ namespace ConstructorApp.Controllers
                 {
                     CurrentPage = page,
                     TotalPages = totalPages,
-                    PageUrl = "/Customer/Index"
+                    PageUrl = "/Project/Index"
                 },
                 Project = pagedData  // Önemli: Tüm müşteriler yerine sayfalanmış veriyi kullanıyoruz
             };
@@ -37,6 +37,24 @@ namespace ConstructorApp.Controllers
             if (ModelState.IsValid)
             {
                 projectService.AddAsync(project);
+                await unitOfWork.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(project);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var customer =await projectService.GetByIdAsync(id);
+            return View(customer);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Details(Project project)
+        {
+            if (ModelState.IsValid)
+            {
+                await projectService.UpdateAsync(project);
                 await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

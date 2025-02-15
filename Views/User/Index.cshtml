@@ -1,0 +1,48 @@
+
+@model Models.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    @* ViewData["BreadCrumbTitle"] = "Yönetim Paneli"; *@
+    ViewData["Controller"] = "Kullanıcılar";
+    ViewData["Action"] = "Liste";
+}
+
+
+<div class="mt-4">
+    <a class="btn btn-primary" asp-controller="User" asp-action="Create">Yeni Personel</a>
+</div>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col">
+            <table class="table border striped">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.AppUser)
+                    {
+                        <tr>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td>@user</td>
+                            <td>
+                                <a class="btn btn-primary" asp-controller="User" asp-action="Details"
+                                    asp-route-id="@user.Id">Düzenle/Detay</a>
+                                <a class="btn btn-danger" asp-controller="User" asp-action="Delete"
+                                    asp-route-id="@user.Id">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @Html.Partial("Components/_Pagination",Model.PaginationModel)
+    </div>
+</div>
