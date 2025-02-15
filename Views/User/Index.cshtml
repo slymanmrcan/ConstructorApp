@@ -7,10 +7,12 @@
     ViewData["Action"] = "Liste";
 }
 
-
+@if (User.IsInRole("Yönetici"))
+                {
 <div class="mt-4">
     <a class="btn btn-primary" asp-controller="User" asp-action="Create">Yeni Personel</a>
 </div>
+}
 <div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col">
@@ -21,7 +23,10 @@
                         <th>Soyad</th>
                         <th>Email</th>
                         <th>Telefon</th>
+                        @if (User.IsInRole("Yönetici"))
+                {
                         <th>İşlemler</th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -31,13 +36,16 @@
                             <td>@user.FirstName</td>
                             <td>@user.LastName</td>
                             <td>@user.Email</td>
-                            <td>@user</td>
+                            <td>@user.PhoneNumber</td>
+                            @if (User.IsInRole("Yönetici"))
+                {
                             <td>
                                 <a class="btn btn-primary" asp-controller="User" asp-action="Details"
                                     asp-route-id="@user.Id">Düzenle/Detay</a>
                                 <a class="btn btn-danger" asp-controller="User" asp-action="Delete"
                                     asp-route-id="@user.Id">Sil</a>
                             </td>
+                            }
                         </tr>
                     }
                 </tbody>

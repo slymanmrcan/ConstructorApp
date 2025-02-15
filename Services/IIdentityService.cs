@@ -17,6 +17,9 @@ namespace ConstructorApp.Services
         Task<IdentityResult> DeleteUser(string userId);
         Task<IList<string>> GetUserRoles(AppUser user);
 
+        Task UpdateSecurityStamp(AppUser user);
+        Task UpdatePassword(AppUser user, string password);
+
         // Role işlemleri
         Task<bool> RoleExists(string roleName);
         Task<IdentityResult> CreateRole(string roleName);

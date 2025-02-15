@@ -3,15 +3,19 @@ using System.Threading.Tasks;
 using ConstructorApp.Models;
 using ConstructorApp.Repository;
 using ConstructorApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models.ViewModels;
 
 namespace ConstructorApp.Controllers
 {
+    [Authorize(Roles = "Yönetici")]
     public class UserController(IIdentityService identityService, IUnitOfWork unitOfWork) : BaseController
     {
-        public async Task<IActionResult> IndexAsync(int page = 1)
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> Index(int page = 1)
         {
             int pageSize = 10;
             var (pagedData, totalPages) = await identityService.GetPagedAsync(page, pageSize);
@@ -67,27 +71,57 @@ namespace ConstructorApp.Controllers
             }
             return View();
         }
-
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var user = await identityService.GetUserById(id.ToString());
+            var userRole = await identityService.GetUserRoles(user);
+
             var roles = await identityService.GetAllRoles();
-            ViewBag.roles = new SelectList(roles, "Name", "Name");
+            ViewBag.roles = new SelectList(roles, "Name", "Name", userRole.FirstOrDefault());
             return View(user);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Details(AppUser user)
+        public async Task<IActionResult> Details(AppUser user, string? password)
         {
             var roles = await identityService.GetAllRoles();
-            ViewBag.roles = new SelectList(roles, "Name", "Name");
+            var userRole = await identityService.GetUserRoles(user);
+            ViewBag.roles = new SelectList(roles, "Name", "Name", userRole.FirstOrDefault());
+
+            var userDetail = await identityService.GetUserById(user.Id.ToString());
+            if (userDetail == null) return View(user);
+
             if (ModelState.IsValid)
             {
-                await identityService.UpdateUser(user);
+                userDetail.Email = user.Email;
+                userDetail.UserName = user.Email;
+                userDetail.NormalizedEmail = user.Email?.ToUpper();
+                userDetail.NormalizedUserName = user.Email?.ToUpper();
+                userDetail.FirstName = user.FirstName;
+                userDetail.LastName = user.LastName;
+                userDetail.PhoneNumber = user.PhoneNumber;
+                userDetail.ModifiedDate = DateTime.Now;
+                if (password != null)
+                {
+                    await identityService.UpdatePassword(userDetail, password);
+                    await unitOfWork.SaveChangesAsync();
+                }
+
+                userDetail.SecurityStamp = Guid.NewGuid().ToString();
+                var updateUser = await identityService.UpdateUser(userDetail);
+                // if (updateUser.Succeeded)
+                // {
+                //     await identityService.UpdateSecurityStamp(user);
+                // }
                 await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            else
+            {
+                ModelState.AddModelError("", "Güncelleme başarısız!");
+                return View(user);
+            }
         }
         public async Task<IActionResult> Delete(int id)
         {

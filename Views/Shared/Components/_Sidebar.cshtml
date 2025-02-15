@@ -3,14 +3,22 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 @* <div class="sb-sidenav-menu-heading">Core</div> *@
+                 @if (User.IsInRole("Yönetici"))
+                {
                 <a class="nav-link" asp-action="Index" asp-controller="Home">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Yönetim paneli
                 </a>
-                <a class="nav-link" asp-action="Index" asp-controller="Customer">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                    Müşteriler
-                </a>
+                }
+
+                @if (User.IsInRole("Yönetici"))
+                {
+                    <a class="nav-link" asp-action="Index" asp-controller="Customer">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                        Müşteriler
+                    </a>
+                }
+
                 <a class="nav-link" asp-action="Index" asp-controller="User">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-person-digging"></i></i></div>
                     Personel

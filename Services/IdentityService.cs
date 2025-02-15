@@ -108,5 +108,15 @@ namespace ConstructorApp.Services
             var roles = _roleManager.Roles.ToListAsync();
             return roles;
         }
+
+        public async Task UpdateSecurityStamp(AppUser user)
+        {
+            await _userManager.UpdateSecurityStampAsync(user);
+        }
+
+        public Task UpdatePassword(AppUser user, string password)
+        {
+            return _userManager.ChangePasswordAsync(user, user.PasswordHash, password);
+        }
     }
 }

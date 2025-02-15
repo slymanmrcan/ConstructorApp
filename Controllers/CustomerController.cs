@@ -2,10 +2,12 @@ using System.Threading.Tasks;
 using ConstructorApp.Models;
 using ConstructorApp.Repository;
 using ConstructorApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models.ViewModels;
 namespace ConstructorApp.Controllers
 {
+    [Authorize(Roles ="Yönetici")]
     public class CustomerController(ICustomerService customerService, IUnitOfWork unitOfWork) : BaseController
     {
         public async Task<IActionResult> Index(int page = 1)

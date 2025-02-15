@@ -19,15 +19,22 @@ namespace ConstructorApp.Controllers
         {
             if ((await identityService.SignIn(appUser.Email, appUser.PasswordHash, false)).Succeeded)
             {
-                var user = await identityService.SignInAsync(appUser, false);
-                
+                // Veritabanından tam kullanıcı bilgilerini al
+                var user = await identityService.GetUserByUsername(appUser.Email);
+
+                // Tam kullanıcı bilgileriyle oturum aç
+                await identityService.SignInAsync(user, false);
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ModelState.AddModelError("", "Kullanıc  adı  veya  şifre hatalı");
+                ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı");
+                return View(appUser);
             }
-            return RedirectToAction("Index", "Home");
+
+            // Bu satır hiç çalışmayacak, yukarıda her durumda return var
+            // return RedirectToAction("Index", "Home");
         }
         public IActionResult Register()
         {
