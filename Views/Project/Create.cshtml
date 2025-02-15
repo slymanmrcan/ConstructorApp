@@ -1,0 +1,45 @@
+@model Project
+
+@{
+    ViewData["Title"] = "Home Page";
+    @* ViewData["BreadCrumbTitle"] = "Yönetim Paneli"; *@
+    ViewData["Controller"] = "Projeler";
+    ViewData["Action"] = "Yeni Kayıt";
+}
+<div>
+    <a class="btn btn-primary" asp-action="Index">Listeye Geri Dön</a>
+</div>
+<div class="row justify-content-center">
+    <div class="col">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Prize" class="control-label"></label>
+                <input type="number" asp-for="Prize" class="form-control" />
+                <span asp-validation-for="Prize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

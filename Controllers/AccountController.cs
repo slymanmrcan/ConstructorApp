@@ -1,12 +1,14 @@
 using ConstructorApp.Models;
 using ConstructorApp.Repository;
 using ConstructorApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructorApp.Controllers
 {
-    public class LoginController(IIdentityService identityService) : BaseController
+    [AllowAnonymous]
+    public class AccountController(IIdentityService identityService) : BaseController
     {
         public async Task<IActionResult> Login()
         {
@@ -17,6 +19,8 @@ namespace ConstructorApp.Controllers
         {
             if ((await identityService.SignIn(appUser.Email, appUser.PasswordHash, false)).Succeeded)
             {
+                var user = await identityService.SignInAsync(appUser, false);
+                
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -52,7 +56,7 @@ namespace ConstructorApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await identityService.SignOut();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Login", "Account");
         }
     }
 }

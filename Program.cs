@@ -9,13 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSqlServer(builder.Configuration);
 builder.Services.AddIdentitySettings();
 builder.Services.AddRepositoryExtention().AddServicesExtention();
-builder.Services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = "/Login/Login";
-                options.LogoutPath = "/Login/Logout";
-                options.AccessDeniedPath = "/Account/AccessDenied";
-                options.Cookie.Name = "AuthCookie";
-            });
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

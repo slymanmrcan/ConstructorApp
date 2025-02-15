@@ -86,5 +86,11 @@ namespace ConstructorApp.Services
         {
             return await _userManager.UpdateAsync(user);
         }
+
+        public async Task<SignInResult> SignInAsync(AppUser user,bool rememberMe = false)
+        {
+            await _signInManager.SignInAsync(user, rememberMe);
+            return SignInResult.Success;
+        }
     }
 }

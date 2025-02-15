@@ -22,7 +22,6 @@ namespace ConstructorApp.Controllers
                 },
                 Customers = pagedData  // Önemli: Tüm müşteriler yerine sayfalanmış veriyi kullanıyoruz
             };
-
             return View(customerViewModel);
         }
         public IActionResult Create()

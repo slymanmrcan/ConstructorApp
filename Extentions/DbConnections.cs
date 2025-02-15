@@ -1,4 +1,5 @@
 using ConstructorApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace ConstructorApp.Extensions
 {
     public static class DbConnectionExtension
     {
-        
+
         public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
@@ -34,7 +35,25 @@ namespace ConstructorApp.Extensions
             })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
-            
+
+            return services;
+        }
+
+        public static IServiceCollection AddCookies(this IServiceCollection services)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(options =>
+                {
+                    options.Cookie.Name = "AuthCookie";
+                    options.Cookie.HttpOnly = true;
+                    options.LoginPath = "/Account/Login";
+                    options.LogoutPath = "/Account/Logout";
+                    options.AccessDeniedPath = "/Account/AccessDenied";
+                    options.SlidingExpiration = true;
+                });
             return services;
         }
     }

@@ -7,6 +7,7 @@ namespace ConstructorApp.Services
     {
         Task<bool> CheckUsernameExists(string username);
         Task<SignInResult> SignIn(string username, string password, bool rememberMe = false);
+        Task<SignInResult> SignInAsync(AppUser user, bool rememberMe = false);
         Task SignOut();
         Task<IdentityResult> CreateUser(AppUser user, string password);
         Task<AppUser> GetUserById(string userId);
