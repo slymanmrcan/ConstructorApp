@@ -10,5 +10,6 @@ namespace ConstructorApp.Services
         Task UpdateAsync(T entity);
         Task<T> GetByIdAsync(int id);
         Task DeleteAsync(int id);
+
     }
 }

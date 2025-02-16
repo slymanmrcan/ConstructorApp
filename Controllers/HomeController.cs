@@ -1,20 +1,21 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ConstructorApp.Models;
+using ConstructorApp.Services;
+using System.Threading.Tasks;
 
 namespace ConstructorApp.Controllers;
 
-public class HomeController : Controller
+public class HomeController(IProjectService projectService,ILoggingService logger) : BaseController(logger)
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public async Task<IActionResult> Index()
     {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
+        var completed =await projectService.GetCountFinished();
+        var inprogress =await projectService.GetCountProgress();
+        var pending =await projectService.GetCountPending();
+        ViewBag.completed =completed;
+        ViewBag.inprogress =inprogress;
+        ViewBag.pending =pending;
         return View();
     }
 

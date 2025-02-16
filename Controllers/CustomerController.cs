@@ -8,7 +8,7 @@ using Models.ViewModels;
 namespace ConstructorApp.Controllers
 {
     [Authorize(Roles ="Yönetici")]
-    public class CustomerController(ICustomerService customerService, IUnitOfWork unitOfWork) : BaseController
+    public class CustomerController(ICustomerService customerService, IUnitOfWork unitOfWork,ILoggingService logging) : BaseController(logging)
     {
         public async Task<IActionResult> Index(int page = 1)
         {

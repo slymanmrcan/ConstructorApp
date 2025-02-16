@@ -3,12 +3,24 @@ using ConstructorApp.Extentions;
 using ConstructorApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSqlServer(builder.Configuration);
 builder.Services.AddIdentitySettings();
 builder.Services.AddRepositoryExtention().AddServicesExtention();
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()  // Konsola yaz
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)  // Dosyaya yaz
+    .WriteTo.MSSqlServer(
+        connectionString: connectionString,
+        tableName: "Logs",
+        autoCreateSqlTable: true
+    )
+    .CreateLogger();
+builder.Host.UseSerilog();
 
 builder.Services.AddControllersWithViews();
 
@@ -30,6 +42,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();

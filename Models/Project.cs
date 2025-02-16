@@ -9,12 +9,15 @@ namespace ConstructorApp.Models
         public string Name { get; set; }
         [DisplayName("Açıklama")]
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [DisplayName("Fiyat")]
 
         public double Prize { get; set; }  
         [DisplayName("Lokasyon")]
 
         public string Location { get; set; }
+
+        public string Status { get; set; }
+        
     }
 }

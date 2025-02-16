@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ConstructorApp.Controllers
 {
     [AllowAnonymous]
-    public class AccountController(IIdentityService identityService) : BaseController
+    public class AccountController(IIdentityService identityService, ILoggingService logger) : BaseController(logger)
     {
         public async Task<IActionResult> Login()
         {
@@ -24,12 +24,13 @@ namespace ConstructorApp.Controllers
 
                 // Tam kullanıcı bilgileriyle oturum aç
                 await identityService.SignInAsync(user, false);
-
+                logger.LogInfo("Giriş denemesi basarılı");
                 return RedirectToAction("Index", "Home");
             }
             else
             {
                 ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı");
+                logger.LogError("Giriş denemesi başarısz");
                 return View(appUser);
             }
 

@@ -11,7 +11,7 @@ using Models.ViewModels;
 namespace ConstructorApp.Controllers
 {
     [Authorize(Roles = "Yönetici")]
-    public class UserController(IIdentityService identityService, IUnitOfWork unitOfWork) : BaseController
+    public class UserController(IIdentityService identityService, IUnitOfWork unitOfWork,ILoggingService logger) : BaseController(logger)
     {
         [AllowAnonymous]
         [HttpGet]

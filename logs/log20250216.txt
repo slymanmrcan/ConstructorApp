@@ -1,0 +1,105 @@
+2025-02-16 16:34:59.984 +03:00 [INF] User profile is available. Using 'C:\Users\slyma\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-16 16:35:00.108 +03:00 [INF] Now listening on: http://localhost:5088
+2025-02-16 16:35:00.111 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-16 16:35:00.111 +03:00 [INF] Hosting environment: Development
+2025-02-16 16:35:00.112 +03:00 [INF] Content root path: C:\Users\slyma\OneDrive\Masaüstü\.netcoreProject\ConstructorApp
+2025-02-16 16:35:00.338 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ - null null
+2025-02-16 16:35:00.347 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-16 16:35:00.551 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:00.571 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-16 16:35:00.582 +03:00 [INF] Executing ViewResult, running view Login.
+2025-02-16 16:35:00.649 +03:00 [INF] Executed ViewResult - view Login executed in 71.7883ms.
+2025-02-16 16:35:00.653 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Login (ConstructorApp) in 81.3588ms
+2025-02-16 16:35:00.653 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:00.658 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ - 200 null text/html; charset=utf-8 322.2907ms
+2025-02-16 16:35:00.688 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-16 16:35:00.691 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 2.3138ms
+2025-02-16 16:35:04.082 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ - application/x-www-form-urlencoded 272
+2025-02-16 16:35:04.091 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:04.103 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ConstructorApp.Models.AppUser) on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-16 16:35:05.234 +03:00 [INF] Executed DbCommand (77ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-16 16:35:05.375 +03:00 [INF] Giriş denemesi başarısz
+2025-02-16 16:35:05.377 +03:00 [INF] Executing ViewResult, running view Login.
+2025-02-16 16:35:05.383 +03:00 [INF] Executed ViewResult - view Login executed in 6.5327ms.
+2025-02-16 16:35:05.384 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Login (ConstructorApp) in 1281.1284ms
+2025-02-16 16:35:05.385 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:05.391 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ - 200 null text/html; charset=utf-8 1308.5716ms
+2025-02-16 16:35:05.419 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-16 16:35:05.420 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.6414ms
+2025-02-16 16:35:09.179 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ - application/x-www-form-urlencoded 271
+2025-02-16 16:35:09.195 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:09.195 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ConstructorApp.Models.AppUser) on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-16 16:35:09.451 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-16 16:35:09.626 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-02-16 16:35:09.705 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-02-16 16:35:09.778 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[IsDeleted], [a].[ModifiedDate], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-02-16 16:35:09.857 +03:00 [INF] Executed DbCommand (59ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-02-16 16:35:09.861 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-02-16 16:35:09.926 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-16 16:35:09.991 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-02-16 16:35:10.053 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-02-16 16:35:10.123 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[IsDeleted], [a].[ModifiedDate], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-02-16 16:35:10.183 +03:00 [INF] Executed DbCommand (59ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-02-16 16:35:10.185 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-02-16 16:35:10.186 +03:00 [WRN] Giriş denemesi basarılı
+2025-02-16 16:35:10.187 +03:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-02-16 16:35:10.187 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Login (ConstructorApp) in 992.339ms
+2025-02-16 16:35:10.188 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-16 16:35:10.188 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ - 302 0 null 1009.0598ms
+2025-02-16 16:35:10.193 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Home/Index - null null
+2025-02-16 16:35:10.197 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-16 16:35:10.200 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller ConstructorApp.Controllers.HomeController (ConstructorApp).
+2025-02-16 16:35:10.309 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Completed'
+2025-02-16 16:35:10.373 +03:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'InProgress'
+2025-02-16 16:35:10.435 +03:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-16 16:35:10.462 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-16 16:35:10.512 +03:00 [INF] Executed ViewResult - view Index executed in 51.6661ms.
+2025-02-16 16:35:10.512 +03:00 [INF] Executed action ConstructorApp.Controllers.HomeController.Index (ConstructorApp) in 311.8087ms
+2025-02-16 16:35:10.512 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-16 16:35:10.512 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Home/Index - 200 null text/html; charset=utf-8 319.1143ms
+2025-02-16 16:35:10.554 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-16 16:35:10.554 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.3106ms
