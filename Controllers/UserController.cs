@@ -25,7 +25,7 @@ namespace ConstructorApp.Controllers
                 {
                     CurrentPage = page,
                     TotalPages = totalPages,
-                    PageUrl = "/Project/Index"
+                    PageUrl = "/User/Index"
                 },
                 AppUser = pagedData  // Önemli: Tüm müşteriler yerine sayfalanmış veriyi kullanıyoruz
             };

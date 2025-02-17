@@ -2,11 +2,13 @@ using ConstructorApp.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace ConstructorApp.Extensions
 {
     public static class DbConnectionExtension
     {
+        
 
         public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
         {
@@ -16,6 +18,20 @@ namespace ConstructorApp.Extensions
             });
 
             return services;
+        }
+        public static IServiceCollection AddSeriLog(this IServiceCollection services,IConfiguration configuration)
+        {
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()  // Konsola yaz
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)  // Dosyaya yaz
+                .WriteTo.MSSqlServer(
+                    connectionString:configuration.GetConnectionString("DefaultConnection"),
+                    tableName: "Logs",
+                    autoCreateSqlTable: true
+                )
+                .CreateLogger();
+                return services;
         }
 
         public static IServiceCollection AddIdentitySettings(this IServiceCollection services)

@@ -118,5 +118,10 @@ namespace ConstructorApp.Services
         {
             return _userManager.ChangePasswordAsync(user, user.PasswordHash, password);
         }
+
+        public async Task<List<AppUser>> GetAllUsers()
+        {
+            return await _userManager.Users.ToListAsync();
+        }
     }
 }

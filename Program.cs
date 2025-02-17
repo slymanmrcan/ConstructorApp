@@ -10,16 +10,8 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddSqlServer(builder.Configuration);
 builder.Services.AddIdentitySettings();
 builder.Services.AddRepositoryExtention().AddServicesExtention();
+builder.Services.AddSeriLog(builder.Configuration);
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()  // Konsola yaz
-    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)  // Dosyaya yaz
-    .WriteTo.MSSqlServer(
-        connectionString: connectionString,
-        tableName: "Logs",
-        autoCreateSqlTable: true
-    )
-    .CreateLogger();
 builder.Host.UseSerilog();
 
 builder.Services.AddControllersWithViews();

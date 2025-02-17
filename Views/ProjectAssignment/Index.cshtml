@@ -1,0 +1,53 @@
+@model Models.ViewModels.ProjectAssignmentViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    @* ViewData["BreadCrumbTitle"] = "Yönetim Paneli"; *@
+    ViewData["Controller"] = "Proje Sorumlusu";
+    ViewData["Action"] = "Liste";
+}
+
+<div class="mt-4">
+    <a class="btn btn-primary" asp-action="Create">Proje Sorumlusu Ata</a>
+</div>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col">
+            <table class="table border striped">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Konum</th>
+                        <th>Görevli Personel</th>
+                        @if (User.IsInRole("Yönetici"))
+                {
+                        <th>İşlemler</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var projectAssignment in Model.ProjectAssignment)
+                    {
+                        <tr>
+                            <td>@projectAssignment.Project.Name</td>
+                            <td>@projectAssignment.Project.Location</td>
+                            <td>@projectAssignment.AppUser.FullName</td>
+                             @if (User.IsInRole("Yönetici"))
+                {
+                            <td>
+                                <a class="btn btn-secondary" asp-controller="ProjectAssignment" asp-action=""
+                                    asp-route-id="@projectAssignment.Id">Proje Tamamlandı</a>
+                                <a class="btn btn-primary" asp-controller="ProjectAssignment" asp-action="Details"
+                                    asp-route-id="@projectAssignment.Id">Düzenle/Detay</a>
+                                <a class="btn btn-danger" asp-controller="ProjectAssignment" asp-action="Delete"
+                                    asp-route-id="@projectAssignment.Id">Sil</a>
+
+                            </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @Html.Partial("Components/_Pagination",Model.PaginationModel)
+    </div>
+</div>

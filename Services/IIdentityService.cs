@@ -17,6 +17,8 @@ namespace ConstructorApp.Services
         Task<IdentityResult> DeleteUser(string userId);
         Task<IList<string>> GetUserRoles(AppUser user);
 
+        Task<List<AppUser>> GetAllUsers();
+
         Task UpdateSecurityStamp(AppUser user);
         Task UpdatePassword(AppUser user, string password);
 

@@ -56,6 +56,7 @@ namespace ConstructorApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                project.Status = "Pending";
                 await projectService.UpdateAsync(project);
                 await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");

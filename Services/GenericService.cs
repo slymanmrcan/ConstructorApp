@@ -18,7 +18,7 @@ namespace ConstructorApp.Services
             await repository.DeleteAsync(entity);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IQueryable<T>> GetAllAsync()
         {
             return await repository.GetAllAsync();
         }

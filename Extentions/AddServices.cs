@@ -11,6 +11,7 @@ namespace ConstructorApp.Extentions
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ILoggingService, LoggingService>();
+            services.AddScoped<IProjectAssignmentService, ProjectAssignmentService>();
             return services;
         }
     }
