@@ -6,9 +6,9 @@ using Models.ViewModels;
 
 namespace ConstructorApp.Controllers
 {
-    public class ProjectController(IProjectService projectService,IUnitOfWork unitOfWork,ILoggingService logger) : BaseController(logger)
+    public class ProjectController(IProjectService projectService, IUnitOfWork unitOfWork, ILoggingService logger) : BaseController(logger)
     {
-    
+
         public async Task<IActionResult> IndexAsync(int page = 1)
         {
             int pageSize = 10;
@@ -47,7 +47,7 @@ namespace ConstructorApp.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var customer =await projectService.GetByIdAsync(id);
+            var customer = await projectService.GetByIdAsync(id);
             return View(customer);
         }
         [HttpPost]
@@ -56,7 +56,10 @@ namespace ConstructorApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                project.Status = "Pending";
+                if (project.Status == null)
+                {
+                    project.Status = "Pending";
+                }
                 await projectService.UpdateAsync(project);
                 await unitOfWork.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -69,7 +72,7 @@ namespace ConstructorApp.Controllers
             var project = await projectService.GetByIdAsync(id);
             if (project == null)
             {
-                return RedirectToAction("Index");   
+                return RedirectToAction("Index");
             }
             await projectService.DeleteAsync(project.Id);
             await unitOfWork.SaveChangesAsync();

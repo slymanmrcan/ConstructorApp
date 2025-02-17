@@ -1,43 +1,55 @@
-﻿@{
+﻿@model List<ChartCombineModel>
+@using Models.ChartViewModels;
+@{
     ViewData["Title"] = "Home Page";
     ViewData["BreadCrumbTitle"] = "Ana sayfa";
     ViewData["Controller"] = "Ana Sayfa";
     ViewData["Action"] = "Grafikler";
+    var prize = ViewBag.prize;
 }
 <div class="container-fluid px-4">
     <div class="row">
-        <div class="col-4 mb-4">
+        <div class="col-3 mb-4">
+            <div class="card">
+                Bütün Projeler @ViewBag.total
+                @* @ViewBag.prize *@
+            </div>
+        </div>
+        <div class="col-3 mb-4">
             <div class="card">
                 Başlanmayan Projeler @ViewBag.pending
             </div>
         </div>
-        <div class="col-4 mb-4">
+        <div class="col-3 mb-4">
             <div class="card">
                 Devam Eden Projeler @ViewBag.inprogress
             </div>
         </div>
-        <div class="col-4 mb-4">
+        <div class="col-3 mb-4">
             <div class="card">
                 Tamamlanan Projeler @ViewBag.completed
             </div>
         </div>
     </div>
-    @* <div class="card mb-4">
+    <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-chart-area me-1"></i>
-            Area Chart Example
+            Toplam Proje Maliyeti
         </div>
-        <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-    </div> *@
+        <div class="card-body">
+            @ViewBag.totalprize TL
+        </div>
+        @* <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> *@
+    </div>
     <div class="row">
+
         <div class="col-lg-6">
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-chart-bar me-1"></i>
                     En Büyük 3 Proje Fiyatı
                 </div>
-                <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
+                <div class="card-body"><canvas id="myChart" width="100%" height="50"></canvas></div>
                 @* <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> *@
             </div>
         </div>
@@ -58,7 +70,57 @@
 @section Scripts
 {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="~/Theme/assets/demo/chart-area-demo.js"></script>
-    <script src="~/Theme/assets/demo/chart-bar-demo.js"></script>
-    <script src="~/Theme/assets/demo/chart-pie-demo.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            label:[@Html.Raw(string.Join(",", Model.SelectMany(m => m.Top3Project).Select(p => $"\"{p.Name}\"")))],
+            data: {
+                labels: [@Html.Raw(string.Join(",", Model.SelectMany(m => m.Top3Project).Select(p => $"\"{p.Name}\"")))], // İsimleri label olarak ekle
+                datasets: [{
+                    label: [@Html.Raw(string.Join(",", Model.SelectMany(m => m.Top3Project).Select(p => $"\"{p.Name}\"")))],
+                    data: [@string.Join(",", Model.SelectMany(m => m.Top3Project).Select(p => p.Prize))], // Ödül değerleri
+                    backgroundColor: ['red', 'blue', 'green'],
+                    borderColor: ['darkred', 'darkblue', 'darkgreen'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [@Html.Raw(string.Join(",", Model.SelectMany(m => m.AllProject).Select(p => $"\"{p.Name}\"")))], // İsimleri label olarak ekle
+                    @* labels: ["test"], // İsimleri label olarak ekle *@
+            datasets: [{
+                label: '',
+                data: [@Html.Raw(string.Join(",", Model.SelectMany(m => m.AllProject).Select(p => $"\"{p.Prize}\"")))], // Ödül değerleri
+                        @* data: ["12","122","21"], // Ödül değerleri *@
+            backgroundColor: ['red', 'blue', 'green'],
+            borderColor: ['darkred', 'darkblue', 'darkgreen'],
+            borderWidth: 1
+                    }]
+                },
+        options: {
+            responsive: true,
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+            });
+    </script>
+
+    @* <script src="~/Theme/assets/demo/chart-area-demo.js"></script> *@
 }

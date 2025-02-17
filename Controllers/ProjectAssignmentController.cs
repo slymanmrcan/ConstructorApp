@@ -124,5 +124,37 @@ namespace ConstructorApp.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var projectAssignment = await projectAssignmentService.GetByIdAsync(id);
+            return View(projectAssignment);
+        }
+        public async Task<IActionResult> CompleteProject(int id)
+        {
+            var projectAssignment = await projectAssignmentService.GetByIdAsync(id);
+            if (projectAssignment == null || projectAssignment.ProjectId == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var project = await projectService.GetByIdAsync(projectAssignment.ProjectId);
+            if (project == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            project.Status = "Completed";
+            await projectService.UpdateAsync(project);
+            await unitOfWork.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+        // [HttpPost]
+        // public async Task<IActionResult> Details(ProjectAssignment projectAssignment)
+        // {
+        //     var projectAssignment = await projectAssignmentService.GetByIdAsync(projectAssignment.Id);
+        //     return View(projectAssignment);
+        // }
     }
 }

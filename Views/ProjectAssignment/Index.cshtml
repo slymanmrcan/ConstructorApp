@@ -34,12 +34,19 @@
                              @if (User.IsInRole("Yönetici"))
                 {
                             <td>
-                                <a class="btn btn-secondary" asp-controller="ProjectAssignment" asp-action=""
+                                @if(@projectAssignment.Project.Status=="Completed")
+                                {
+                                    <span>Proje Tamamlandı</span>
+                                }
+                                else{
+                                <a class="btn btn-secondary" asp-controller="ProjectAssignment" asp-action="CompleteProject"
                                     asp-route-id="@projectAssignment.Id">Proje Tamamlandı</a>
-                                <a class="btn btn-primary" asp-controller="ProjectAssignment" asp-action="Details"
+                                    <a class="btn btn-primary" asp-controller="ProjectAssignment" asp-action="Details"
                                     asp-route-id="@projectAssignment.Id">Düzenle/Detay</a>
                                 <a class="btn btn-danger" asp-controller="ProjectAssignment" asp-action="Delete"
                                     asp-route-id="@projectAssignment.Id">Sil</a>
+                                }
+                                
 
                             </td>
                             }

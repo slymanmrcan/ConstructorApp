@@ -1,4 +1,5 @@
 using ConstructorApp.Models;
+using Models.ChartViewModels;
 
 namespace ConstructorApp.Services
 {
@@ -8,5 +9,11 @@ namespace ConstructorApp.Services
         Task<int> GetCountFinished();
         Task<int> GetCountPending();
         Task<int> GetCountProgress();
-    }
+
+        Task<List<Top3Project>> GetPrize();
+
+        Task<List<AllProject>> GetAllProjects();
+
+        Task<double> GetAllPrize();
+    } 
 }

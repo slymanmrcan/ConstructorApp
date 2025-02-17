@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ConstructorApp.Models;
 using ConstructorApp.Services;
 using System.Threading.Tasks;
+using Models.ChartViewModels;
 
 namespace ConstructorApp.Controllers;
 
@@ -16,7 +17,16 @@ public class HomeController(IProjectService projectService,ILoggingService logge
         ViewBag.completed =completed;
         ViewBag.inprogress =inprogress;
         ViewBag.pending =pending;
-        return View();
+        ViewBag.total =completed+inprogress+pending;
+        ViewBag.totalprize=await projectService.GetAllPrize();
+        var prize =await projectService.GetPrize();
+        var project = await projectService.GetAllProjects();
+        ChartCombineModel model = new ChartCombineModel{
+            AllProject = project,
+            Top3Project = prize
+        };
+        var modelList = new List<ChartCombineModel> { model };
+        return View(modelList);
     }
 
     public IActionResult Privacy()
