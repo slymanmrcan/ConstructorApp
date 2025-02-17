@@ -64,19 +64,36 @@ namespace ConstructorApp.Controllers
                 var users = await identityService.GetUserById(userId.ToString());
                 if (project != null || users != null)
                 {
-                    var projectAssignment = new ProjectAssignment
+
+                    using var transaction = await unitOfWork.BeginTransactionAsync();
+                    try
                     {
-                        ProjectId = projectId,
-                        AppUserId = userId  // Muhtemelen kolon adı 'AppUserId' olmalı, 'UserId' değil
-                    };
-                    await projectAssignmentService.AddAsync(projectAssignment);
-                    project.Status = "InProgress";
-                    await projectService.UpdateAsync(project);
-                    await unitOfWork.SaveChangesAsync();
-                    return RedirectToAction("Index"); // Başarılı durumda bir yönlendirme yapmalısınız
+                        var projectAssignment = new ProjectAssignment
+                        {
+                            ProjectId = projectId,
+                            AppUserId = userId  // Muhtemelen kolon adı 'AppUserId' olmalı, 'UserId' değil
+                        };
+                        await projectAssignmentService.AddAsync(projectAssignment);
+                        project.Status = "InProgress";
+                        await projectService.UpdateAsync(project);
+                        await unitOfWork.SaveChangesAsync();
+                        return RedirectToAction("Index"); // Başarılı durumda bir yönlendirme yapmalısınız
+                    }
+
+                    catch (Exception ex)
+                    {
+                        await transaction.RollbackAsync(); // Hata durumunda geri alma
+                        logger.LogError("Create ProjectAssignment Error", ex);
+                    }
                 }
             }
-            // Form gösterimi için gerekli verileri hazırla
+
+            await PrepareViewForCreate();
+            return View();
+        }
+
+        private async Task<IActionResult> PrepareViewForCreate()
+        {
             var allProject = await projectService.GetAllAsync();
             var data = allProject.Where(x => x.Status == "Pending");
             ViewBag.ProjectSelectList = new SelectList(data, "Id", "Name");
@@ -84,15 +101,20 @@ namespace ConstructorApp.Controllers
             var allUsers = await identityService.GetAllUsers();
             ViewBag.UserSelectList = new SelectList(allUsers, "Id", "FullName");
 
-            return View();
+            var viewModel = new CreateProjectAssignmentViewModel
+            {
+                Projects = allProject,
+                AppUsers = await identityService.GetAllUsers(),
+                ProjectAssignment = new ProjectAssignment()
+            };
+
+            return View(viewModel);
         }
-
-
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var projectAssignment = await projectAssignmentService.GetByIdAsync(id);
-            
+
             if (projectAssignment != null)
             {
                 await projectAssignmentService.DeleteAsync(projectAssignment.Id);

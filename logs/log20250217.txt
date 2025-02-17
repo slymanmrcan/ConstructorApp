@@ -2592,3 +2592,687 @@ FROM [AspNetUsers] AS [a]
 2025-02-17 17:15:25.657 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 196.6557ms
 2025-02-17 17:15:25.695 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
 2025-02-17 17:15:25.695 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2573ms
+2025-02-17 17:19:21.878 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Account/Logout - null null
+2025-02-17 17:19:21.879 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Logout (ConstructorApp)'
+2025-02-17 17:19:21.882 +03:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-17 17:19:21.887 +03:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-02-17 17:19:21.888 +03:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-02-17 17:19:21.888 +03:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-02-17 17:19:21.889 +03:00 [INF] Executing RedirectResult, redirecting to /.
+2025-02-17 17:19:21.889 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Logout (ConstructorApp) in 6.3671ms
+2025-02-17 17:19:21.889 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Logout (ConstructorApp)'
+2025-02-17 17:19:21.889 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Account/Logout - 302 0 null 10.8942ms
+2025-02-17 17:19:21.893 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ - null null
+2025-02-17 17:19:21.893 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-17 17:19:21.896 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-17 17:19:21.898 +03:00 [INF] Executing ViewResult, running view Login.
+2025-02-17 17:19:21.924 +03:00 [INF] Executed ViewResult - view Login executed in 26.5902ms.
+2025-02-17 17:19:21.924 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Login (ConstructorApp) in 28.2789ms
+2025-02-17 17:19:21.924 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-17 17:19:21.924 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ - 200 null text/html; charset=utf-8 31.6383ms
+2025-02-17 17:19:21.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:21.978 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2736ms
+2025-02-17 17:19:24.275 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ - application/x-www-form-urlencoded 225
+2025-02-17 17:19:24.277 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-17 17:19:24.283 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ConstructorApp.Models.AppUser) on controller ConstructorApp.Controllers.AccountController (ConstructorApp).
+2025-02-17 17:19:24.373 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-17 17:19:24.525 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-02-17 17:19:24.602 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-02-17 17:19:24.605 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-02-17 17:19:24.668 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-17 17:19:24.731 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-02-17 17:19:24.793 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-02-17 17:19:24.794 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-02-17 17:19:24.795 +03:00 [WRN] Giriş denemesi basarılı
+2025-02-17 17:19:24.795 +03:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-02-17 17:19:24.795 +03:00 [INF] Executed action ConstructorApp.Controllers.AccountController.Login (ConstructorApp) in 512.0084ms
+2025-02-17 17:19:24.795 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.AccountController.Login (ConstructorApp)'
+2025-02-17 17:19:24.795 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ - 302 0 null 520.1978ms
+2025-02-17 17:19:24.802 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Home/Index - null null
+2025-02-17 17:19:24.803 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-17 17:19:24.803 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller ConstructorApp.Controllers.HomeController (ConstructorApp).
+2025-02-17 17:19:24.864 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Completed'
+2025-02-17 17:19:24.929 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'InProgress'
+2025-02-17 17:19:24.991 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:24.991 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:24.993 +03:00 [INF] Executed ViewResult - view Index executed in 1.8011ms.
+2025-02-17 17:19:24.993 +03:00 [INF] Executed action ConstructorApp.Controllers.HomeController.Index (ConstructorApp) in 189.8073ms
+2025-02-17 17:19:24.993 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-17 17:19:24.993 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Home/Index - 200 null text/html; charset=utf-8 191.6923ms
+2025-02-17 17:19:25.046 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:25.046 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2752ms
+2025-02-17 17:19:25.759 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:25.760 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:25.761 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:25.824 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:25.891 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:25.957 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:25.958 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:25.959 +03:00 [INF] Executed ViewResult - view Index executed in 1.0107ms.
+2025-02-17 17:19:25.960 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 198.8021ms
+2025-02-17 17:19:25.960 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:25.960 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 200.4922ms
+2025-02-17 17:19:26.014 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:26.014 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2781ms
+2025-02-17 17:19:28.466 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:28.467 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:28.467 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:28.531 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:28.599 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:28.599 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:28.663 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:28.665 +03:00 [INF] Executed ViewResult - view Create executed in 65.4871ms.
+2025-02-17 17:19:28.665 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 198.0501ms
+2025-02-17 17:19:28.665 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:28.665 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 199.3188ms
+2025-02-17 17:19:28.716 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:28.717 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2268ms
+2025-02-17 17:19:32.594 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 248
+2025-02-17 17:19:32.595 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:32.595 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:32.662 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-02-17 17:19:32.730 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-17 17:19:32.856 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p13='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProjectAssignments] ([AppUserId], [CreatedDate], [IsDeleted], [ModifiedDate], [ProjectId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Projects] SET [CreatedDate] = @p5, [Description] = @p6, [IsDeleted] = @p7, [Location] = @p8, [ModifiedDate] = @p9, [Name] = @p10, [Prize] = @p11, [Status] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2025-02-17 17:19:32.920 +03:00 [INF] Executing RedirectResult, redirecting to /ProjectAssignment/Index.
+2025-02-17 17:19:32.920 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 324.7536ms
+2025-02-17 17:19:32.920 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:32.920 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 302 0 null 326.645ms
+2025-02-17 17:19:32.926 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:32.927 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:32.927 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:32.990 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:33.055 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:33.118 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:33.118 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:33.119 +03:00 [INF] Executed ViewResult - view Index executed in 0.87ms.
+2025-02-17 17:19:33.119 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 192.1263ms
+2025-02-17 17:19:33.119 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:33.119 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 193.8256ms
+2025-02-17 17:19:33.163 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:33.164 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2845ms
+2025-02-17 17:19:33.778 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:33.779 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:33.779 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:33.843 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:33.910 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:33.911 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:33.976 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:33.978 +03:00 [INF] Executed ViewResult - view Create executed in 67.336ms.
+2025-02-17 17:19:33.978 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 198.699ms
+2025-02-17 17:19:33.978 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:33.979 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 200.2881ms
+2025-02-17 17:19:34.028 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:34.028 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.3535ms
+2025-02-17 17:19:37.298 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 248
+2025-02-17 17:19:37.298 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:37.299 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:37.363 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-02-17 17:19:37.438 +03:00 [INF] Executed DbCommand (74ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-17 17:19:37.564 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p13='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProjectAssignments] ([AppUserId], [CreatedDate], [IsDeleted], [ModifiedDate], [ProjectId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Projects] SET [CreatedDate] = @p5, [Description] = @p6, [IsDeleted] = @p7, [Location] = @p8, [ModifiedDate] = @p9, [Name] = @p10, [Prize] = @p11, [Status] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2025-02-17 17:19:37.627 +03:00 [INF] Executing RedirectResult, redirecting to /ProjectAssignment/Index.
+2025-02-17 17:19:37.627 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 328.6023ms
+2025-02-17 17:19:37.627 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:37.628 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 302 0 null 330.115ms
+2025-02-17 17:19:37.634 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:37.635 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:37.635 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:37.697 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:37.762 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:37.825 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:37.826 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:37.827 +03:00 [INF] Executed ViewResult - view Index executed in 1.3628ms.
+2025-02-17 17:19:37.827 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 192.3131ms
+2025-02-17 17:19:37.827 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:37.828 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 194.0056ms
+2025-02-17 17:19:37.868 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:37.869 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2316ms
+2025-02-17 17:19:38.736 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:38.737 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:38.737 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:38.799 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:38.864 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:38.865 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:38.931 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:38.933 +03:00 [INF] Executed ViewResult - view Create executed in 67.3923ms.
+2025-02-17 17:19:38.933 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 195.5696ms
+2025-02-17 17:19:38.933 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:38.933 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 197.4231ms
+2025-02-17 17:19:38.987 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:38.987 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.3108ms
+2025-02-17 17:19:40.085 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 295
+2025-02-17 17:19:40.086 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:40.087 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:40.158 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:40.159 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:40.221 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:40.222 +03:00 [INF] Executed ViewResult - view Create executed in 63.1997ms.
+2025-02-17 17:19:40.222 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 135.3584ms
+2025-02-17 17:19:40.222 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:40.222 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 136.9312ms
+2025-02-17 17:19:40.262 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:40.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.232ms
+2025-02-17 17:19:41.394 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:41.395 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:41.396 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:41.466 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:41.528 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:41.594 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:41.595 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:41.596 +03:00 [INF] Executed ViewResult - view Index executed in 0.8609ms.
+2025-02-17 17:19:41.596 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 200.6148ms
+2025-02-17 17:19:41.596 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:41.596 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 202.1305ms
+2025-02-17 17:19:41.636 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:41.636 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2506ms
+2025-02-17 17:19:42.314 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:42.315 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:42.315 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:42.387 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:42.453 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:42.453 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:42.517 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:42.518 +03:00 [INF] Executed ViewResult - view Create executed in 65.3372ms.
+2025-02-17 17:19:42.519 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 203.4874ms
+2025-02-17 17:19:42.519 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:42.519 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 205.1322ms
+2025-02-17 17:19:42.570 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:42.571 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2924ms
+2025-02-17 17:19:46.094 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 248
+2025-02-17 17:19:46.095 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:46.095 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:46.160 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-02-17 17:19:46.225 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-17 17:19:46.352 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p13='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProjectAssignments] ([AppUserId], [CreatedDate], [IsDeleted], [ModifiedDate], [ProjectId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Projects] SET [CreatedDate] = @p5, [Description] = @p6, [IsDeleted] = @p7, [Location] = @p8, [ModifiedDate] = @p9, [Name] = @p10, [Prize] = @p11, [Status] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2025-02-17 17:19:46.416 +03:00 [INF] Executing RedirectResult, redirecting to /ProjectAssignment/Index.
+2025-02-17 17:19:46.416 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 320.8568ms
+2025-02-17 17:19:46.416 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:46.416 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 302 0 null 322.2146ms
+2025-02-17 17:19:46.422 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:46.422 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:46.423 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:46.486 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:46.552 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:46.618 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:46.619 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:46.620 +03:00 [INF] Executed ViewResult - view Index executed in 0.7575ms.
+2025-02-17 17:19:46.620 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 197.1286ms
+2025-02-17 17:19:46.620 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:46.620 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 198.3575ms
+2025-02-17 17:19:46.658 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:46.658 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2509ms
+2025-02-17 17:19:47.068 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:47.070 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:47.070 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:47.133 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:47.199 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:47.200 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:47.260 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:47.262 +03:00 [INF] Executed ViewResult - view Create executed in 62.2528ms.
+2025-02-17 17:19:47.262 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 192.0492ms
+2025-02-17 17:19:47.262 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:47.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 194.027ms
+2025-02-17 17:19:47.313 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:47.314 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1668ms
+2025-02-17 17:19:51.273 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 248
+2025-02-17 17:19:51.274 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:51.274 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:51.339 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-02-17 17:19:51.408 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-17 17:19:51.533 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p13='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProjectAssignments] ([AppUserId], [CreatedDate], [IsDeleted], [ModifiedDate], [ProjectId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Projects] SET [CreatedDate] = @p5, [Description] = @p6, [IsDeleted] = @p7, [Location] = @p8, [ModifiedDate] = @p9, [Name] = @p10, [Prize] = @p11, [Status] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2025-02-17 17:19:51.595 +03:00 [INF] Executing RedirectResult, redirecting to /ProjectAssignment/Index.
+2025-02-17 17:19:51.595 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 320.6129ms
+2025-02-17 17:19:51.595 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:51.595 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 302 0 null 321.7852ms
+2025-02-17 17:19:51.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:51.600 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:51.600 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:51.667 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:51.733 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:51.801 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:51.801 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:51.802 +03:00 [INF] Executed ViewResult - view Index executed in 0.85ms.
+2025-02-17 17:19:51.802 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 202.0574ms
+2025-02-17 17:19:51.802 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:51.802 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 203.3648ms
+2025-02-17 17:19:51.840 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:51.841 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2503ms
+2025-02-17 17:19:53.793 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:19:53.794 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:53.794 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:53.858 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:53.921 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:53.922 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:19:53.984 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:19:53.985 +03:00 [INF] Executed ViewResult - view Create executed in 63.5245ms.
+2025-02-17 17:19:53.985 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 191.4304ms
+2025-02-17 17:19:53.985 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:19:53.986 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 192.8185ms
+2025-02-17 17:19:54.034 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:54.034 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1798ms
+2025-02-17 17:19:55.204 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:19:55.205 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:55.205 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:19:55.276 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:19:55.339 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:19:55.407 +03:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:19:55.408 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:19:55.409 +03:00 [INF] Executed ViewResult - view Index executed in 1.1622ms.
+2025-02-17 17:19:55.409 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 204.1874ms
+2025-02-17 17:19:55.409 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:19:55.410 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 205.7419ms
+2025-02-17 17:19:55.449 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:19:55.449 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2413ms
+2025-02-17 17:23:11.003 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:23:11.004 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:11.004 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:23:11.070 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:11.133 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:11.134 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:23:11.200 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:23:11.201 +03:00 [INF] Executed ViewResult - view Create executed in 67.268ms.
+2025-02-17 17:23:11.201 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 197.5338ms
+2025-02-17 17:23:11.202 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:11.202 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 199.4124ms
+2025-02-17 17:23:11.264 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:11.264 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2705ms
+2025-02-17 17:23:11.828 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:23:11.829 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:23:11.830 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:23:11.901 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:23:11.966 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:23:12.029 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:12.030 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:23:12.030 +03:00 [INF] Executed ViewResult - view Index executed in 0.7567ms.
+2025-02-17 17:23:12.031 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 200.9346ms
+2025-02-17 17:23:12.031 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:23:12.031 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 202.5494ms
+2025-02-17 17:23:12.065 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:12.065 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2684ms
+2025-02-17 17:23:12.483 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - null null
+2025-02-17 17:23:12.484 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:12.484 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:23:12.546 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:12.612 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:12.613 +03:00 [INF] Executing ViewResult, running view Create.
+2025-02-17 17:23:12.676 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:23:12.677 +03:00 [INF] Executed ViewResult - view Create executed in 64.0248ms.
+2025-02-17 17:23:12.677 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 192.7152ms
+2025-02-17 17:23:12.677 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:12.677 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Create - 200 null text/html; charset=utf-8 193.9363ms
+2025-02-17 17:23:12.721 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:12.721 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1871ms
+2025-02-17 17:23:15.933 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - application/x-www-form-urlencoded 248
+2025-02-17 17:23:15.934 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:15.935 +03:00 [INF] Route matched with {action = "Create", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Int32, Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:23:16.001 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-02-17 17:23:16.066 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-17 17:23:16.195 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p13='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProjectAssignments] ([AppUserId], [CreatedDate], [IsDeleted], [ModifiedDate], [ProjectId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Projects] SET [CreatedDate] = @p5, [Description] = @p6, [IsDeleted] = @p7, [Location] = @p8, [ModifiedDate] = @p9, [Name] = @p10, [Prize] = @p11, [Status] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2025-02-17 17:23:16.258 +03:00 [INF] Executing RedirectResult, redirecting to /ProjectAssignment/Index.
+2025-02-17 17:23:16.258 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp) in 323.2437ms
+2025-02-17 17:23:16.258 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Create (ConstructorApp)'
+2025-02-17 17:23:16.258 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5088/ProjectAssignment/Create - 302 0 null 324.8065ms
+2025-02-17 17:23:16.262 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:23:16.263 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:23:16.263 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:23:16.327 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:23:16.391 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:23:16.452 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:16.453 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:23:16.454 +03:00 [INF] Executed ViewResult - view Index executed in 1.0615ms.
+2025-02-17 17:23:16.454 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 191.289ms
+2025-02-17 17:23:16.454 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:23:16.455 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 192.5494ms
+2025-02-17 17:23:16.490 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:16.490 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2441ms
+2025-02-17 17:23:17.436 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/User/Index - null null
+2025-02-17 17:23:17.438 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.UserController.Index (ConstructorApp)'
+2025-02-17 17:23:17.442 +03:00 [INF] Route matched with {action = "Index", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.UserController (ConstructorApp).
+2025-02-17 17:23:17.509 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:23:17.512 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:23:17.518 +03:00 [INF] Executed ViewResult - view Index executed in 7.1332ms.
+2025-02-17 17:23:17.518 +03:00 [INF] Executed action ConstructorApp.Controllers.UserController.Index (ConstructorApp) in 76.2765ms
+2025-02-17 17:23:17.518 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.UserController.Index (ConstructorApp)'
+2025-02-17 17:23:17.518 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/User/Index - 200 null text/html; charset=utf-8 82.309ms
+2025-02-17 17:23:17.561 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:17.561 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2767ms
+2025-02-17 17:23:18.132 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Home/Index - null null
+2025-02-17 17:23:18.133 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-17 17:23:18.133 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller ConstructorApp.Controllers.HomeController (ConstructorApp).
+2025-02-17 17:23:18.194 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Completed'
+2025-02-17 17:23:18.254 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'InProgress'
+2025-02-17 17:23:18.316 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+WHERE [p].[Status] = N'Pending'
+2025-02-17 17:23:18.316 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:23:18.317 +03:00 [INF] Executed ViewResult - view Index executed in 0.8392ms.
+2025-02-17 17:23:18.317 +03:00 [INF] Executed action ConstructorApp.Controllers.HomeController.Index (ConstructorApp) in 184.4471ms
+2025-02-17 17:23:18.317 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.HomeController.Index (ConstructorApp)'
+2025-02-17 17:23:18.317 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Home/Index - 200 null text/html; charset=utf-8 185.5042ms
+2025-02-17 17:23:18.364 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:23:18.364 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.174ms
+2025-02-17 17:25:44.761 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - null null
+2025-02-17 17:25:44.762 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:25:44.762 +03:00 [INF] Route matched with {action = "Index", controller = "ProjectAssignment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.ProjectAssignmentController (ConstructorApp).
+2025-02-17 17:25:44.832 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AppUserId], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedDate], [p].[ProjectId], [p0].[Id], [p0].[CreatedDate], [p0].[Description], [p0].[IsDeleted], [p0].[Location], [p0].[ModifiedDate], [p0].[Name], [p0].[Prize], [p0].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [ProjectAssignments] AS [p]
+INNER JOIN [Projects] AS [p0] ON [p].[ProjectId] = [p0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [p].[AppUserId] = [a].[Id]
+2025-02-17 17:25:44.897 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+2025-02-17 17:25:44.961 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:25:44.962 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:25:44.962 +03:00 [INF] Executed ViewResult - view Index executed in 0.8282ms.
+2025-02-17 17:25:44.962 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp) in 200.4873ms
+2025-02-17 17:25:44.962 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectAssignmentController.Index (ConstructorApp)'
+2025-02-17 17:25:44.963 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/ProjectAssignment/Index - 200 null text/html; charset=utf-8 201.3702ms
+2025-02-17 17:25:45.018 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:25:45.018 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.2126ms
+2025-02-17 17:25:45.979 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Project/Index - null null
+2025-02-17 17:25:45.979 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:25:45.984 +03:00 [INF] Route matched with {action = "Index", controller = "Project"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IndexAsync(Int32) on controller ConstructorApp.Controllers.ProjectController (ConstructorApp).
+2025-02-17 17:25:45.990 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-17 17:25:45.991 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-02-17 17:25:46.058 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-02-17 17:25:46.124 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+2025-02-17 17:25:46.127 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:25:46.134 +03:00 [INF] Executed ViewResult - view Index executed in 7.964ms.
+2025-02-17 17:25:46.135 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp) in 150.9859ms
+2025-02-17 17:25:46.135 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:25:46.135 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Project/Index - 200 null text/html; charset=utf-8 156.2736ms
+2025-02-17 17:25:46.182 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:25:46.183 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 1.0671ms
+2025-02-17 17:25:47.440 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/User/Index - null null
+2025-02-17 17:25:47.442 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.UserController.Index (ConstructorApp)'
+2025-02-17 17:25:47.442 +03:00 [INF] Route matched with {action = "Index", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller ConstructorApp.Controllers.UserController (ConstructorApp).
+2025-02-17 17:25:47.515 +03:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsDeleted], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedDate], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-02-17 17:25:47.515 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:25:47.517 +03:00 [INF] Executed ViewResult - view Index executed in 1.0912ms.
+2025-02-17 17:25:47.517 +03:00 [INF] Executed action ConstructorApp.Controllers.UserController.Index (ConstructorApp) in 74.702ms
+2025-02-17 17:25:47.517 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.UserController.Index (ConstructorApp)'
+2025-02-17 17:25:47.517 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/User/Index - 200 null text/html; charset=utf-8 76.7115ms
+2025-02-17 17:25:47.564 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:25:47.564 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1952ms
+2025-02-17 17:25:48.437 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Project/Index - null null
+2025-02-17 17:25:48.438 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:25:48.438 +03:00 [INF] Route matched with {action = "Index", controller = "Project"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IndexAsync(Int32) on controller ConstructorApp.Controllers.ProjectController (ConstructorApp).
+2025-02-17 17:25:48.516 +03:00 [INF] Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-02-17 17:25:48.580 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+2025-02-17 17:25:48.581 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:25:48.582 +03:00 [INF] Executed ViewResult - view Index executed in 1.2583ms.
+2025-02-17 17:25:48.582 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp) in 143.4108ms
+2025-02-17 17:25:48.582 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:25:48.582 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Project/Index - 200 null text/html; charset=utf-8 145.2934ms
+2025-02-17 17:25:48.627 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:25:48.627 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1755ms
+2025-02-17 17:27:25.220 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/Project/Index - null null
+2025-02-17 17:27:25.220 +03:00 [INF] Executing endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:27:25.220 +03:00 [INF] Route matched with {action = "Index", controller = "Project"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IndexAsync(Int32) on controller ConstructorApp.Controllers.ProjectController (ConstructorApp).
+2025-02-17 17:27:25.284 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[IsDeleted], [p].[Location], [p].[ModifiedDate], [p].[Name], [p].[Prize], [p].[Status]
+FROM [Projects] AS [p]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-02-17 17:27:25.346 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Projects] AS [p]
+2025-02-17 17:27:25.346 +03:00 [INF] Executing ViewResult, running view Index.
+2025-02-17 17:27:25.347 +03:00 [INF] Executed ViewResult - view Index executed in 1.1397ms.
+2025-02-17 17:27:25.347 +03:00 [INF] Executed action ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp) in 127.049ms
+2025-02-17 17:27:25.348 +03:00 [INF] Executed endpoint 'ConstructorApp.Controllers.ProjectController.IndexAsync (ConstructorApp)'
+2025-02-17 17:27:25.348 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/Project/Index - 200 null text/html; charset=utf-8 128.0527ms
+2025-02-17 17:27:25.377 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-17 17:27:25.377 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5088/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.1951ms
