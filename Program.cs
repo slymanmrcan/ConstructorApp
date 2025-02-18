@@ -1,6 +1,7 @@
 using ConstructorApp.Extensions;
 using ConstructorApp.Extentions;
 using ConstructorApp.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Serilog;
@@ -8,7 +9,7 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSqlServer(builder.Configuration);
-builder.Services.AddIdentitySettings();
+builder.Services.AddIdentitySettings().ConfigureIdentityCookie();
 builder.Services.AddRepositoryExtention().AddServicesExtention();
 builder.Services.AddSeriLog(builder.Configuration);
 
@@ -27,13 +28,15 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+app.UseStatusCodePagesWithReExecute("/Error/All", "?statusCode={0}");
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");
+
 
 app.Run();
